@@ -25,6 +25,14 @@ const houseSchema = new mongoose.Schema(
     bathrooms: Number,
     area: Number, // Área construida en m²
     landSize: Number, // Tamaño del terreno en m²
+    lat: {
+      type: Number,
+      default: null,
+    },
+    lng: {
+      type: Number,
+      default: null,
+    },
   },
   { timestamps: true }
 );
