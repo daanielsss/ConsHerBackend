@@ -159,3 +159,19 @@ export const borrarMaterial = async (req: Request, res: Response) => {
       .json({ error: "Error al borrar material", details: err.message });
   }
 };
+
+// Borrar un proyecto completo por ID
+export const borrarProyecto = async (req: Request, res: Response) => {
+  try {
+    const proyectoEliminado = await Project.findByIdAndDelete(req.params.id);
+
+    if (!proyectoEliminado) {
+      return res.status(404).json({ error: "Proyecto no encontrado" });
+    }
+    res.json({ message: "Proyecto eliminado permanentemente" });
+  } catch (err: any) {
+    res
+      .status(500)
+      .json({ error: "Error al eliminar el proyecto", details: err.message });
+  }
+};

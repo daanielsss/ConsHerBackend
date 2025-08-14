@@ -8,11 +8,11 @@ import {
   agregarGasto,
   agregarNomina,
   agregarMaterial,
-  // ✅ Importa los nuevos controladores
   actualizarEstadoProyecto,
   borrarGasto,
   borrarNomina,
   borrarMaterial,
+  borrarProyecto,
 } from "../controllers/projectController";
 
 const router = Router();
@@ -36,5 +36,8 @@ router.patch("/:id", actualizarEstadoProyecto);
 router.delete("/:id/gastos/:gastoId", borrarGasto);
 router.delete("/:id/nomina/:nominaId", borrarNomina);
 router.delete("/:id/materiales/:materialId", borrarMaterial);
+
+// Ruta para BORRAR un proyecto completo
+router.delete("/:id", borrarProyecto);
 
 export default router;
